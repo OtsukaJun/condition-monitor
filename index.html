@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>日常英単語アプリ</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <!-- Start Screen -->
+    <div id="start-screen" class="screen">
+        <div class="container">
+            <h1 class="app-title">日常英単語アプリ</h1>
+            <button id="start-btn" class="btn primary-btn">はじめる</button>
+        </div>
+    </div>
+
+    <!-- Quiz Screen -->
+    <div id="quiz-screen" class="screen hidden">
+        <div class="quiz-header">日常生活の英単語</div>
+        <div class="container">
+            <h2 id="word-display" class="word-display">arrange</h2>
+            <div class="choices-container">
+                <button class="choice-btn" data-index="0">
+                    <span class="choice-number">1</span>
+                    <span class="choice-text">配置する</span>
+                </button>
+                <button class="choice-btn" data-index="1">
+                    <span class="choice-number">2</span>
+                    <span class="choice-text">注文する</span>
+                </button>
+                <button class="choice-btn" data-index="2">
+                    <span class="choice-number">3</span>
+                    <span class="choice-text">目覚める</span>
+                </button>
+                <button class="choice-btn" data-index="3">
+                    <span class="choice-number">4</span>
+                    <span class="choice-text">洗う</span>
+                </button>
+            </div>
+            <button id="view-results-btn" class="btn primary-btn">学習結果を見る</button>
+        </div>
+    </div>
+
+    <!-- Results Screen -->
+    <div id="results-screen" class="screen hidden">
+        <div class="results-container">
+            <h2 class="results-title">学習結果</h2>
+            <div class="results-card">
+                <p id="encouragement-message" class="encouragement-message">
+                    お疲れ様、今日も英単語勉強して偉いね。頑張りやさん！
+                </p>
+                <div class="results-content">
+                    <div class="chart-section">
+                        <div class="chart-label">正答数</div>
+                        <div class="circular-chart">
+                            <svg viewBox="0 0 200 200" class="chart-svg">
+                                <circle cx="100" cy="100" r="85" class="chart-background"></circle>
+                                <circle id="chart-progress" cx="100" cy="100" r="85" class="chart-progress"></circle>
+                            </svg>
+                            <div class="chart-center">
+                                <span id="correct-count" class="chart-number">9</span>
+                                <span class="chart-divider">/</span>
+                                <span id="total-count-fraction" class="chart-total">10</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="stats-section">
+                        <div class="stat-row">
+                            <div class="stat-item">
+                                <div class="stat-label">解答時間</div>
+                                <div class="stat-value">
+                                    <span id="time-spent" class="stat-number">54</span>
+                                    <span class="stat-unit">秒</span>
+                                </div>
+                            </div>
+                            <div class="stat-item">
+                                <div class="stat-label">解答数</div>
+                                <div class="stat-value">
+                                    <span id="total-count" class="stat-number">10</span>
+                                    <span class="stat-unit">問</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="stat-row">
+                            <div class="stat-item">
+                                <div class="stat-label">目標達成率</div>
+                                <div class="stat-value">
+                                    <span id="goal-rate" class="stat-number">90</span>
+                                    <span class="stat-unit">%</span>
+                                </div>
+                                <div class="stat-note">目標正答数 = 10問</div>
+                            </div>
+                            <div class="stat-item">
+                                <div class="stat-label">予測達成率</div>
+                                <div class="stat-value">
+                                    <span id="predicted-rate" class="stat-number">100</span>
+                                    <span class="stat-unit">%</span>
+                                </div>
+                                <div class="stat-note">目標達成率の予測</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <button id="finish-btn" class="btn primary-btn">終了する</button>
+        </div>
+    </div>
+
+    <script src="vocabulary_data.js"></script>
+    <script src="app.js"></script>
+</body>
+
+</html>
